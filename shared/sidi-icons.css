@@ -1,0 +1,56 @@
+
+.sidi-icon{
+width:20px;
+height:20px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+flex:0 0 auto;
+color:currentColor}
+.sidi-icon svg{
+width:100%;
+height:100%;
+fill:currentColor}
+.sidi-icon--sm{
+width:16px;
+height:16px}
+.sidi-icon--lg{
+width:24px;
+height:24px}
+.sidi-icon--bi{
+color:var(--sidi-bi)}
+.sidi-icon--folder{
+color:var(--sidi-folder)}
+
+
+/* Font Awesome CDN icon layer for v6.1. All visible UI icons pass through .sidi-icon. */
+.sidi-icon.fa-solid{
+  width:20px;
+  height:20px;
+  display:inline-grid;
+  place-items:center;
+  flex:0 0 auto;
+  font-size:var(--sidi-icon-size-sm);
+  line-height:1;
+  color:currentColor;
+}
+.sidi-icon--sm.fa-solid{
+  width:16px;
+  height:16px;
+  font-size:var(--sidi-icon-size-sm);
+}
+.sidi-icon--lg.fa-solid{
+  width:24px;
+  height:24px;
+  font-size:22px;
+}
+.sidi-topbar-action .sidi-icon,
+.sidi-btn-primary .sidi-icon,
+.sidi-btn-danger .sidi-icon{
+  color:#fff;
+}
+.sidi-modal-close .sidi-icon,
+.sidi-title-help .sidi-icon,
+.sidi-btn-icon .sidi-icon{
+  margin:0;
+}

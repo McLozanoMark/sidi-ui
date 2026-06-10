@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>
+   Alertas - SIDI
+  </title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" rel="stylesheet"/>
+<link href="shared/sidi-tokens.css" rel="stylesheet"/>
+<link href="shared/sidi-icons.css" rel="stylesheet">
+<link href="shared/sidi-layout.css" rel="stylesheet"/>
+<link href="shared/sidi-components.css" rel="stylesheet"/>
+<link href="shared/sidi-utilities.css" rel="stylesheet"/>
+<link href="pages/alertas/alertas.css" rel="stylesheet"/>
+</link></head>
+<body>
+<div class="sidi-shell">
+<header class="sidi-topbar">
+<div class="sidi-brand">
+<button aria-label="Abrir menú" class="sidi-topbar-action sidi-menu-button" data-menu-button="" type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-bars"></i>
+</button>
+<div class="sidi-brand-mark">
+      S
+     </div>
+<div class="sidi-logo-text">
+      SIDI
+     </div>
+<div class="sidi-brand-subtitle">
+      Sistema integrado de información del MINEDU
+     </div>
+</div>
+<div aria-label="Acciones globales" class="sidi-topbar-actions">
+<button aria-label="Buscar reportes" class="sidi-topbar-action" data-open-modal="searchModal" type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-magnifying-glass"></i>
+</button>
+<button aria-label="Mapa de sitio" class="sidi-topbar-action" data-open-modal="siteMapModal" type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-map"></i>
+</button>
+<button aria-label="Ayuda sobre SIDI" class="sidi-topbar-action" data-open-modal="helpModal" type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-circle-question"></i>
+</button>
+<button aria-label="Notificaciones" class="sidi-topbar-action" data-toggle-dropdown="notificationsMenu" type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-bell"></i>
+<span class="sidi-badge-count">
+       3
+      </span>
+</button>
+<button aria-label="Usuario" class="sidi-topbar-action" data-toggle-dropdown="userMenu" type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-circle-user"></i>
+</button>
+</div>
+</header>
+<aside class="sidi-sidebar" data-sidebar="">
+</aside>
+<div class="sidi-sidebar-overlay" data-sidebar-overlay="">
+</div>
+<main class="sidi-main">
+<div class="sidi-content"><nav class="sidi-breadcrumb">
+<a href="index.html">
+<i aria-hidden="true" class="sidi-icon sidi-icon--sm fa-solid fa-house"></i>
+       Inicio
+      </a>
+<span class="sidi-breadcrumb-sep">
+       /
+      </span>
+<span>
+       Alertas
+      </span>
+</nav>
+<section class="sidi-config-header">
+<div class="sidi-config-header__title">
+<h1 class="sidi-page-title">
+      Alertas
+      <button aria-label="Ayuda de la pantalla" class="sidi-title-help" data-tooltip="Gestiona las alertas informativas del SIDI." type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-circle-info"></i>
+</button>
+</h1>
+</div>
+<form class="sidi-config-header__tools" id="alertsSearchForm" role="search">
+<label class="sidi-searchbox sidi-config-header__search" for="alertsSearchInput">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-magnifying-glass"></i>
+<input autocomplete="off" id="alertsSearchInput" placeholder="Buscar por ID, nombre o descripción" type="search"/>
+</label>
+<button class="sidi-btn sidi-btn-secondary" type="submit">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-magnifying-glass"></i>
+<span>Buscar</span>
+</button>
+<button class="sidi-btn sidi-btn-primary" data-open-modal="modalAlerta" type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-plus"></i>
+<span>Nueva alerta</span>
+</button>
+</form>
+</section>
+<div id="alertsTable"></div>
+<div aria-labelledby="alertaTitle" aria-modal="true" class="sidi-modal-layer" id="modalAlerta" role="dialog">
+<section class="sidi-modal">
+<header class="sidi-modal-head">
+<div>
+<h2 class="sidi-modal-title" id="alertaTitle">Agregar alerta</h2>
+<p class="sidi-modal-subtitle">Registra o actualiza los datos de la alerta.</p>
+</div>
+<button aria-label="Cerrar" class="sidi-modal-close" data-close-modal="" type="button"><i aria-hidden="true" class="sidi-icon fa-solid fa-xmark"></i></button>
+</header>
+<div class="sidi-modal-body">
+<div class="sidi-form-grid">
+<div class="sidi-field">
+<label class="sidi-label" for="alertCode">Código</label>
+<input class="sidi-input" disabled="" id="alertCode" value="ALR-0001"/>
+</div>
+<div class="sidi-field">
+<label class="sidi-label" for="alertName">Nombre</label>
+<input class="sidi-input" id="alertName" value="Vigencia de reporte"/>
+</div>
+<div class="sidi-field sidi-field--full">
+<label class="sidi-label" for="alertDescription">Descripción</label>
+<textarea class="sidi-textarea" id="alertDescription">Alerta para controlar la vigencia de publicación del reporte.</textarea>
+</div>
+<div class="sidi-field">
+<label class="sidi-label" for="alertFrom">Desde</label>
+<input class="sidi-input" id="alertFrom" type="date" value="2026-03-02"/>
+</div>
+<div class="sidi-field">
+<label class="sidi-label" for="alertTo">Hasta</label>
+<input class="sidi-input" id="alertTo" type="date" value="2026-05-02"/>
+</div>
+</div>
+</div>
+<footer class="sidi-modal-foot">
+<button class="sidi-btn sidi-btn-secondary" data-close-modal="" type="button">Cancelar</button>
+<button class="sidi-btn sidi-btn-primary" data-confirm="update" type="button"><i aria-hidden="true" class="sidi-icon fa-solid fa-floppy-disk"></i><span>Guardar</span></button>
+</footer>
+</section>
+</div>
+</div>
+<footer class="sidi-footer">
+     © Ministerio de Educación - SIDI · Plantilla demo institucional
+    </footer>
+</main>
+<div aria-live="polite" class="sidi-toast-area">
+</div>
+<div class="sidi-dropdown" id="notificationsMenu">
+</div>
+<div class="sidi-dropdown" id="userMenu">
+</div>
+<div aria-labelledby="searchTitle" aria-modal="true" class="sidi-modal-layer" id="searchModal" role="dialog">
+<section class="sidi-modal">
+<header class="sidi-modal-head">
+<div>
+<h2 class="sidi-modal-title" id="searchTitle">
+        Buscar reportes
+       </h2>
+<p class="sidi-modal-subtitle">
+        Encuentra rápidamente un Power BI del repositorio.
+       </p>
+</div>
+<button aria-label="Cerrar" class="sidi-modal-close" data-close-modal="" type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-xmark"></i>
+</button>
+</header>
+<div class="sidi-modal-body">
+<label class="sidi-searchbox" for="globalSearchInput">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-magnifying-glass"></i>
+<input id="globalSearchInput" placeholder="Buscar por nombre o categoría" type="search"/>
+</label>
+<div class="sidi-mt-4" id="globalSearchResults">
+</div>
+</div>
+</section>
+</div>
+<div aria-labelledby="siteMapTitle" aria-modal="true" class="sidi-modal-layer" id="siteMapModal" role="dialog">
+<section class="sidi-modal sidi-modal--lg">
+<header class="sidi-modal-head">
+<div>
+<h2 class="sidi-modal-title" id="siteMapTitle">
+        Mapa rápido del SIDI
+       </h2>
+<p class="sidi-modal-subtitle">
+        Accesos principales del repositorio institucional.
+       </p>
+</div>
+<button aria-label="Cerrar" class="sidi-modal-close" data-close-modal="" type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-xmark"></i>
+</button>
+</header>
+<div class="sidi-modal-body">
+<div class="sidi-grid-2">
+<div class="sidi-alert sidi-alert--info">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-chart-simple"></i>
+<div>
+<strong>
+          Reportes Power BI
+         </strong>
+<br/>
+<span>
+          Alta Dirección, Estudiantes, Histórico y más categorías.
+         </span>
+<br/>
+<a href="mapa-sitio.html">
+          Ver mapa completo
+         </a>
+</div>
+</div>
+<div class="sidi-alert sidi-alert--info">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-gear"></i>
+<div>
+<strong>
+          Configuración
+         </strong>
+<br/>
+<span>
+          Submenús, categorías, alertas y permisos.
+         </span>
+<br/>
+<a href="administrar-submenus.html">
+          Administrar submenús
+         </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div aria-labelledby="helpTitle" aria-modal="true" class="sidi-modal-layer" id="helpModal" role="dialog">
+<section class="sidi-modal">
+<header class="sidi-modal-head">
+<div>
+<h2 class="sidi-modal-title" id="helpTitle">
+        ¿Qué es el SIDI?
+       </h2>
+<p class="sidi-modal-subtitle">
+        Sistema integrado de información del MINEDU.
+       </p>
+</div>
+<button aria-label="Cerrar" class="sidi-modal-close" data-close-modal="" type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-xmark"></i>
+</button>
+</header>
+<div class="sidi-modal-body">
+<p>
+       El SIDI funciona como repositorio institucional de reportes Power BI, organizado por categorías, submenús y herramientas administrativas.
+      </p>
+<div class="sidi-alert sidi-alert--info">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-circle-info"></i>
+<span>
+        Esta plantilla es una demo estática para presentar flujos, componentes y navegación.
+       </span>
+</div>
+</div>
+</section>
+</div>
+<div aria-labelledby="confirmTitle" aria-modal="true" class="sidi-modal-layer" id="confirmModal" role="dialog">
+<section class="sidi-modal">
+<header class="sidi-modal-head">
+<div>
+<h2 class="sidi-modal-title" id="confirmTitle">
+        Confirmación
+       </h2>
+<p class="sidi-modal-subtitle" id="confirmMessage">
+        ¿Desea continuar?
+       </p>
+</div>
+<button aria-label="Cerrar" class="sidi-modal-close" data-close-modal="" type="button">
+<i aria-hidden="true" class="sidi-icon fa-solid fa-xmark"></i>
+</button>
+</header>
+<footer class="sidi-modal-foot">
+<button class="sidi-btn sidi-btn-secondary" data-close-modal="" type="button">
+       Cancelar
+      </button>
+<button class="sidi-btn sidi-btn-primary" id="confirmAccept" type="button">
+       Aceptar
+      </button>
+</footer>
+</section>
+</div>
+</div>
+<script src="shared/sidi-data.js">
+</script>
+<script src="shared/sidi-common.js">
+</script>
+<script src="pages/alertas/alertas.js">
+</script>
+</body>
+</html>

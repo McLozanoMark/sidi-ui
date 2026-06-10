@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Mapa de sitio - SIDI
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link href="shared/sidi-tokens.css" rel="stylesheet"/>
+  <link href="shared/sidi-icons.css" rel="stylesheet"/>
+  <link href="shared/sidi-layout.css" rel="stylesheet"/>
+  <link href="shared/sidi-components.css" rel="stylesheet"/>
+  <link href="shared/sidi-utilities.css" rel="stylesheet"/>
+  <link href="pages/mapa-sitio/mapa-sitio.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="sidi-shell">
+   <header class="sidi-topbar">
+    <div class="sidi-brand">
+     <button aria-label="Abrir menú" class="sidi-topbar-action sidi-menu-button" data-menu-button="" type="button">
+      <i class="sidi-icon fa-solid fa-bars" aria-hidden="true"></i>
+     </button>
+     <div class="sidi-brand-mark">
+      S
+     </div>
+     <div class="sidi-logo-text">
+      SIDI
+     </div>
+     <div class="sidi-brand-subtitle">
+      Sistema integrado de información del MINEDU
+     </div>
+    </div>
+    <div aria-label="Acciones globales" class="sidi-topbar-actions">
+     <button aria-label="Buscar reportes" class="sidi-topbar-action" data-open-modal="searchModal" type="button">
+      <i class="sidi-icon fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+     </button>
+     <button aria-label="Mapa de sitio" class="sidi-topbar-action" data-open-modal="siteMapModal" type="button">
+      <i class="sidi-icon fa-solid fa-map" aria-hidden="true"></i>
+     </button>
+     <button aria-label="Ayuda sobre SIDI" class="sidi-topbar-action" data-open-modal="helpModal" type="button">
+      <i class="sidi-icon fa-solid fa-circle-question" aria-hidden="true"></i>
+     </button>
+     <button aria-label="Notificaciones" class="sidi-topbar-action" data-toggle-dropdown="notificationsMenu" type="button">
+      <i class="sidi-icon fa-solid fa-bell" aria-hidden="true"></i>
+      <span class="sidi-badge-count">
+       3
+      </span>
+     </button>
+     <button aria-label="Usuario" class="sidi-topbar-action" data-toggle-dropdown="userMenu" type="button">
+      <i class="sidi-icon fa-solid fa-circle-user" aria-hidden="true"></i>
+     </button>
+    </div>
+   </header>
+   <aside class="sidi-sidebar" data-sidebar="">
+   </aside>
+   <div class="sidi-sidebar-overlay" data-sidebar-overlay="">
+   </div>
+   <main class="sidi-main">
+    <div class="sidi-content">
+     <nav class="sidi-breadcrumb">
+      <a href="index.html">
+       <i class="sidi-icon sidi-icon--sm fa-solid fa-house" aria-hidden="true"></i>
+       Inicio
+      </a>
+      <span class="sidi-breadcrumb-sep">
+       /
+      </span>
+      <span>
+       Mapa de sitio
+      </span>
+     </nav>
+     <div class="sidi-page-head">
+      <h1 class="sidi-page-title">
+       Mapa de sitio
+       <button aria-label="Ayuda" class="sidi-title-help" data-tooltip="Muestra información breve de esta pantalla." type="button">
+        <i class="sidi-icon sidi-icon--sm fa-solid fa-circle-info" aria-hidden="true"></i>
+       </button>
+      </h1>
+     </div>
+     <section class="map-board" id="mapBoard">
+     </section>
+    </div>
+    <footer class="sidi-footer">
+     © Ministerio de Educación - SIDI · Plantilla demo institucional
+    </footer>
+   </main>
+   <div aria-live="polite" class="sidi-toast-area">
+   </div>
+   <div class="sidi-dropdown" id="notificationsMenu">
+   </div>
+   <div class="sidi-dropdown" id="userMenu">
+   </div>
+   <div aria-labelledby="searchTitle" aria-modal="true" class="sidi-modal-layer" id="searchModal" role="dialog">
+    <section class="sidi-modal">
+     <header class="sidi-modal-head">
+      <div>
+       <h2 class="sidi-modal-title" id="searchTitle">
+        Buscar reportes
+       </h2>
+       <p class="sidi-modal-subtitle">
+        Encuentra rápidamente un Power BI del repositorio.
+       </p>
+      </div>
+      <button aria-label="Cerrar" class="sidi-modal-close" data-close-modal="" type="button">
+       <i class="sidi-icon fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+     </header>
+     <div class="sidi-modal-body">
+      <label class="sidi-searchbox" for="globalSearchInput">
+       <i class="sidi-icon fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+       <input id="globalSearchInput" placeholder="Buscar por nombre o categoría" type="search"/>
+      </label>
+      <div class="sidi-mt-4" id="globalSearchResults">
+      </div>
+     </div>
+    </section>
+   </div>
+   <div aria-labelledby="siteMapTitle" aria-modal="true" class="sidi-modal-layer" id="siteMapModal" role="dialog">
+    <section class="sidi-modal sidi-modal--lg">
+     <header class="sidi-modal-head">
+      <div>
+       <h2 class="sidi-modal-title" id="siteMapTitle">
+        Mapa rápido del SIDI
+       </h2>
+       <p class="sidi-modal-subtitle">
+        Accesos principales del repositorio institucional.
+       </p>
+      </div>
+      <button aria-label="Cerrar" class="sidi-modal-close" data-close-modal="" type="button">
+       <i class="sidi-icon fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+     </header>
+     <div class="sidi-modal-body">
+      <div class="sidi-grid-2">
+       <div class="sidi-alert sidi-alert--info">
+        <i class="sidi-icon fa-solid fa-chart-simple" aria-hidden="true"></i>
+        <div>
+         <strong>
+          Reportes Power BI
+         </strong>
+         <br/>
+         <span>
+          Alta Dirección, Estudiantes, Histórico y más categorías.
+         </span>
+         <br/>
+         <a href="mapa-sitio.html">
+          Ver mapa completo
+         </a>
+        </div>
+       </div>
+       <div class="sidi-alert sidi-alert--info">
+        <i class="sidi-icon fa-solid fa-gear" aria-hidden="true"></i>
+        <div>
+         <strong>
+          Configuración
+         </strong>
+         <br/>
+         <span>
+          Submenús, categorías, alertas y permisos.
+         </span>
+         <br/>
+         <a href="administrar-submenus.html">
+          Administrar submenús
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </div>
+   <div aria-labelledby="helpTitle" aria-modal="true" class="sidi-modal-layer" id="helpModal" role="dialog">
+    <section class="sidi-modal">
+     <header class="sidi-modal-head">
+      <div>
+       <h2 class="sidi-modal-title" id="helpTitle">
+        ¿Qué es el SIDI?
+       </h2>
+       <p class="sidi-modal-subtitle">
+        Sistema integrado de información del MINEDU.
+       </p>
+      </div>
+      <button aria-label="Cerrar" class="sidi-modal-close" data-close-modal="" type="button">
+       <i class="sidi-icon fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+     </header>
+     <div class="sidi-modal-body">
+      <p>
+       El SIDI funciona como repositorio institucional de reportes Power BI, organizado por categorías, submenús y herramientas administrativas.
+      </p>
+      <div class="sidi-alert sidi-alert--info">
+       <i class="sidi-icon fa-solid fa-circle-info" aria-hidden="true"></i>
+       <span>
+        Esta plantilla es una demo estática para presentar flujos, componentes y navegación.
+       </span>
+      </div>
+     </div>
+    </section>
+   </div>
+   <div aria-labelledby="confirmTitle" aria-modal="true" class="sidi-modal-layer" id="confirmModal" role="dialog">
+    <section class="sidi-modal">
+     <header class="sidi-modal-head">
+      <div>
+       <h2 class="sidi-modal-title" id="confirmTitle">
+        Confirmación
+       </h2>
+       <p class="sidi-modal-subtitle" id="confirmMessage">
+        ¿Desea continuar?
+       </p>
+      </div>
+      <button aria-label="Cerrar" class="sidi-modal-close" data-close-modal="" type="button">
+       <i class="sidi-icon fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+     </header>
+     <footer class="sidi-modal-foot">
+      <button class="sidi-btn sidi-btn-secondary" data-close-modal="" type="button">
+       Cancelar
+      </button>
+      <button class="sidi-btn sidi-btn-primary" id="confirmAccept" type="button">
+       Aceptar
+      </button>
+     </footer>
+    </section>
+   </div>
+  </div>
+  <script src="shared/sidi-data.js">
+  </script>
+  <script src="shared/sidi-common.js">
+  </script>
+  <script src="pages/mapa-sitio/mapa-sitio.js">
+  </script>
+ </body>
+</html>

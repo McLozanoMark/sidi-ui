@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{const id=new URLSearchParams(location.search).get('reporte')||'brecha';const r=(SIDI_DATA.reports||[]).find(x=>x.id===id);if(r){document.getElementById('reportTitle').textContent=r.title;document.title=r.title+' - SIDI';}});

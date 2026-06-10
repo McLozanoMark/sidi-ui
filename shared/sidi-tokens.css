@@ -1,0 +1,63 @@
+
+:root{
+
+  --sidi-blue-900:#063463;
+--sidi-blue-800:#073c72;
+--sidi-blue-700:#0a4f93;
+--sidi-blue-600:#0b63b6;
+--sidi-blue-100:#e8f3ff;
+--sidi-blue-050:#f3f9ff;
+
+  --sidi-bg:#eef4f9;
+--sidi-surface:#ffffff;
+--sidi-surface-2:#f8fbfe;
+--sidi-line:#d8e3ee;
+
+  --sidi-text:#1d2a3b;
+--sidi-muted:#6e7d90;
+--sidi-soft:#f1f5f9;
+
+  --sidi-success:#42A285;
+--sidi-success-bg:#e9f8f3;
+--sidi-warning:#F59B0B;
+--sidi-warning-bg:#fff6e8;
+--sidi-error:#DF4740;
+--sidi-error-bg:#fff0ef;
+--sidi-confirm:#1F64C7;
+--sidi-confirm-bg:#eef5ff;
+--sidi-neutral:#7d8896;
+--sidi-neutral-bg:#f1f3f6;
+
+  --sidi-bi:#F2C811;
+--sidi-folder:#6D5BD0;
+--sidi-category-icon:#4f637d;
+
+  --sidi-radius-sm:8px;
+--sidi-radius-md:12px;
+--sidi-radius-lg:16px;
+--sidi-radius-xl:20px;
+
+  --sidi-shadow-sm:0 2px 8px rgba(15,41,77,.08);
+--sidi-shadow-md:0 14px 34px rgba(15,41,77,.14);
+
+  --sidi-space-1:4px;
+--sidi-space-2:8px;
+--sidi-space-3:12px;
+--sidi-space-4:16px;
+--sidi-space-5:20px;
+--sidi-space-6:24px;
+--sidi-space-8:32px;
+
+  --sidi-topbar-h:56px;
+--sidi-sidebar-w:270px;
+--sidi-sidebar-collapsed-w:76px;
+--sidi-font:Inter,Segoe UI,Roboto,Arial,sans-serif;
+--sidi-icon-size-sm:14px;
+--sidi-sidebar-font-size-desktop:12px;
+
+  --sidi-fast:160ms;
+--sidi-normal:240ms;
+--sidi-ease:cubic-bezier(.2,0,0,1);
+
+}
+
